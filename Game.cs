@@ -18,6 +18,7 @@ namespace NewProject_CS
             // 게임에 있는 모든 씬들을 보관하고 빠르게 찾아줄 용도로 쓸 자료구조
             sceneDic = new Dictionary<string, Scene>();
             sceneDic.Add("Title", new TitleScene());
+            sceneDic.Add("Prolog", new PrologScene());
 
             curScene = sceneDic["Title"];
         }
@@ -31,14 +32,23 @@ namespace NewProject_CS
         {
             while (gameOver == false)
             {
+                Console.Clear();
+
                 curScene.Render();
+                Console.WriteLine();
                 curScene.Choice();
                 curScene.Input();
+                Console.WriteLine();
                 curScene.Result();
+                Console.WriteLine();
                 curScene.Wait();
                 curScene.Next();
             }
         }
 
+        public static void ChangeScene(string sceneName)
+        {
+            curScene = sceneDic[sceneName];
+        }
     }
 }
