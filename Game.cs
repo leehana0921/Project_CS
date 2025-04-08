@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static NewProject_CS.PrologScene;
 
 namespace NewProject_CS
 {
@@ -19,6 +20,9 @@ namespace NewProject_CS
             sceneDic = new Dictionary<string, Scene>();
             sceneDic.Add("Title", new TitleScene());
             sceneDic.Add("Prolog", new PrologScene());
+            sceneDic.Add("Prolog1", new PrologScene1());
+            sceneDic.Add("Prolog2", new PrologScene2());
+            sceneDic.Add("Prolog3", new PrologScene3());
 
             curScene = sceneDic["Title"];
         }
