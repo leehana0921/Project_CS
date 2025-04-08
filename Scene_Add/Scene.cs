@@ -11,6 +11,7 @@ namespace NewProject_CS.Scene_Add
     public abstract class Scene
     {
         protected ConsoleKey input;
+        
         public abstract void Render();
         public abstract void Choice();
         public void Input()
@@ -18,7 +19,6 @@ namespace NewProject_CS.Scene_Add
             input = Console.ReadKey(true).Key;
         }
         public abstract void Result();
-        public abstract void Wait();
         public abstract void Next();
     }
     public class TitleScene : Scene
@@ -35,15 +35,13 @@ namespace NewProject_CS.Scene_Add
             Console.WriteLine("");
             Console.WriteLine("===========================================================");
         }
-        public override void Choice() { }
-        public override void Result() { }
-        public override void Wait() 
+        public override void Choice() 
         {
             Console.WriteLine("");
             Console.WriteLine("게임 시작을 위해 아무 키나 눌러주세요.");
             Console.ReadKey(true);
         }
-
+        public override void Result() {}
         public override void Next()
         {
             Game.ChangeScene("Prolog");
@@ -64,15 +62,13 @@ namespace NewProject_CS.Scene_Add
             Print("그렇게 평소와 다름없이 일을 하던 중 회사로 걸려 온 한 통의 전화,");
             Print("갑자기 걸려 온 한 통의 전화는 내 인생을 송두리째 바꿔놓기에는 충분했다.\n");
         }
-        public override void Choice() { }
-        public override void Result() { }
-        public override void Wait()
+        public override void Choice() 
         {
             Console.WriteLine("");
             Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
-            Console.ReadKey(true);
+            Console.ReadKey();
         }
-
+        public override void Result() { }
         public override void Next()
         {
             Game.ChangeScene("Prolog1");
@@ -102,15 +98,13 @@ namespace NewProject_CS.Scene_Add
             Print("\"유재현 씨 마음은 잘 압니다. 일단 만나서 얘기 하실까요.\"");
             Print("\"... 네.\"\n");
         }
-        public override void Choice() { }
-        public override void Result() { }
-        public override void Wait()
+        public override void Choice()
         {
             Console.WriteLine("");
             Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
-            Console.ReadKey(true);
+            Console.ReadKey();
         }
-
+        public override void Result() { }
         public override void Next()
         {
             Game.ChangeScene("Prolog2");
@@ -152,7 +146,6 @@ namespace NewProject_CS.Scene_Add
                     break;
             }
         }
-        public override void Wait() { }
         public override void Next()
         {
             switch (input)
@@ -195,14 +188,13 @@ namespace NewProject_CS.Scene_Add
             Print("나는 작게 중얼거렸다.\n");
             Print("\"이걸로 우리 은우는 지킬 수 있게 됐어... 그거면 된 거야...\"\n");
         }
-        public override void Choice() { }
-        public override void Result() { }
-        public override void Wait()
+        public override void Choice()
         {
             Console.WriteLine("");
             Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
-            Console.ReadKey(true);
+            Console.ReadKey();
         }
+        public override void Result() { }
         public override void Next()
         {
             Game.ChangeScene("ImprisonedEnd2");
@@ -227,7 +219,7 @@ namespace NewProject_CS.Scene_Add
             Print("찰칵\n");
             Print("나는 내 손목에 수갑을 채우는 그를 뿌리칠 수 없었다.");
             Print("내가 지금 무슨 짓을...");
-            Print("멍하니 그를 올려다보며 말했다.");
+            Print("멍하니 그를 올려다보며 말했다.,\n");
             Print("\"... 저, 남자는,\"\n");
             Print("목이 메여 말이 잘 나오지 않았으나 겨우 소리를 쥐어짜내어 문장을 완성했다.\n");
             Print("\"죽은, 건가요?\"");
@@ -238,12 +230,6 @@ namespace NewProject_CS.Scene_Add
         }
         public override void Choice() { }
         public override void Result() { }
-        public override void Wait()
-        {
-            Console.WriteLine("");
-            Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
-            Console.ReadKey(true);
-        }
         public override void Next()
         {
             Game.Gameover("당신은 형사를 죽여 진실을 은폐한 뒤 따로 조사를 할 생각이었지만 진짜 김민중 형사에게 딱 들키고 말았군요.\n다음에는 불안에 사로 잡히지 말고 더욱 현명한 판단을 하시길 바랍니다.");
@@ -259,7 +245,7 @@ namespace NewProject_CS.Scene_Add
         public override void Render()
         {
             Console.WriteLine("");
-            Print("아직 나에게 하지 않은 말이 있을 수도 있잖아. 일단 가보자.\n");
+            Print("아직 내게 하지 않은 말이 있을 수도 있잖아. 일단 가보자.\n");
             Print("\"안녕하세요, 유재현입니다. 김민중 형사님 맞으십니까?\"");
             Print("\"아. 오셨군요. 김민중입니다.\"");
             Print("\"하실 말씀이시라는 게 뭔지 들어볼 수 있을까요?\"");
@@ -273,12 +259,6 @@ namespace NewProject_CS.Scene_Add
         }
         public override void Choice() { }
         public override void Result() { }
-        public override void Wait()
-        {
-            Console.WriteLine("");
-            Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
-            Console.ReadKey(true);
-        }
         public override void Next()
         {
             Game.ChangeScene("Prolog4");
@@ -317,15 +297,9 @@ namespace NewProject_CS.Scene_Add
 
         public override void Choice() { }
         public override void Result() { }
-        public override void Wait() 
-        {
-            Console.WriteLine("");
-            Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
-            Console.ReadKey(true);
-        }
         public override void Next()
         {
-            Game.ChangeScene("Prolog5");
+            Game.ChangeScene("MainEvent");
         }
     }
 }

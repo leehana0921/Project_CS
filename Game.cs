@@ -1,9 +1,10 @@
-﻿using System;
+﻿using NewProject_CS.Scene_Add;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static NewProject_CS.PrologScene;
+using static NewProject_CS.Scene_Add.PrologScene;
 
 namespace NewProject_CS
 {
@@ -23,6 +24,7 @@ namespace NewProject_CS
             sceneDic.Add("Prolog1", new PrologScene1());
             sceneDic.Add("Prolog2", new PrologScene2());
             sceneDic.Add("Prolog3", new PrologScene3());
+            sceneDic.Add("Prolog4", new PrologScene4());
             sceneDic.Add("ImprisonedEnd1", new ImprisonedEnd1());
             sceneDic.Add("ImprisonedEnd2", new ImprisonedEnd2());
 
@@ -47,7 +49,6 @@ namespace NewProject_CS
                 Console.WriteLine();
                 curScene.Result();
                 Console.WriteLine();
-                curScene.Wait();
                 curScene.Next();
             }
         }
