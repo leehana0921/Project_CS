@@ -23,6 +23,8 @@ namespace NewProject_CS
             sceneDic.Add("Prolog1", new PrologScene1());
             sceneDic.Add("Prolog2", new PrologScene2());
             sceneDic.Add("Prolog3", new PrologScene3());
+            sceneDic.Add("ImprisonedEnd1", new ImprisonedEnd1());
+            sceneDic.Add("ImprisonedEnd2", new ImprisonedEnd2());
 
             curScene = sceneDic["Title"];
         }
@@ -53,6 +55,14 @@ namespace NewProject_CS
         public static void ChangeScene(string sceneName)
         {
             curScene = sceneDic[sceneName];
+        }
+        public static void Gameover(string ending)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine(ending);
+
+            gameOver = true;
         }
     }
 }
