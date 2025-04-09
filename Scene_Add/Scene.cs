@@ -10,6 +10,15 @@ namespace NewProject_CS.Scene_Add
 {
     public abstract class Scene
     {
+        public Player player = new Player();
+        public Inventory inventory = new Inventory();
+        public int skip = 0;
+
+        public void Print(string text)
+        {
+            Console.WriteLine(text);
+            Thread.Sleep(1000);
+        }
         protected ConsoleKey input;
         
         public abstract void Render();
@@ -49,11 +58,11 @@ namespace NewProject_CS.Scene_Add
     }
     public class PrologScene : Scene
     {
-        private void Print(string text)
-        {
-            Console.WriteLine(text);
-            Thread.Sleep(2000);
-        }
+         
+        
+             
+             
+        
         public override void Render()
         {
             Console.WriteLine("");
@@ -66,7 +75,7 @@ namespace NewProject_CS.Scene_Add
         {
             Console.WriteLine("");
             Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
-            Console.ReadKey();
+            Console.ReadKey(true);
         }
         public override void Result() { }
         public override void Next()
@@ -76,25 +85,22 @@ namespace NewProject_CS.Scene_Add
     }
     public class PrologScene1 : Scene
     {
-        private void Print(string text)
-        {
-            Console.WriteLine(text);
-            Thread.Sleep(2000);
-        }
+         
+        
         public override void Render()
         {
             Console.WriteLine("");
             Print("따르릉\n");
             Print("\"전화 받았습니다, 유재현입니다.\"");
-            Print("\"안녕하십니까. 초록마을 경찰서의 김민우 형사입니다.\"");
+            Print("\"안녕하십니까. 초록마을 경찰서의 김민중 형사입니다.\"");
             Print("\"아, 형사님 안녕하세요. 그런데 무슨 일로...?\"");
             Print("\"유은우 씨 일로 말씀 드리고 싶은 게 있습니다. 잠깐 시간 되십니까?\"\n");
             Print("가슴이 불안했다. 동생들은 부모님이 그렇게 된 후 내게 남은 유일한 가족이었다.\n");
             Print("\"아, 네. 잠시만요.\"\n");
             Print("과장님께 급한 전화가 와 잠시 자리를 비우겠다 말씀 드리고 비상계단으로 갔다.\n");
             Print("\"저희 은우한테 무슨 일이 생긴 걸까요?\"");
-            Print("\"유은우 씨가 제게 찾아왔습니다. 자신이 8년 전 유병철 씨 댁에 불을 지른 진범이라고요.\"");
-            Print("\"네...? 그, 그럴 리가 없어요. 저희 은우는 그 때 고작 7살이었어요. 그 어린 애가 무슨...\"");
+            Print("\"유은우 씨가 제게 찾아왔습니다. 자신이 7년 전 유병철 씨 댁에 불을 지른 진범이라고요.\"");
+            Print("\"네...? 그, 그럴 리가 없어요. 저희 은우는 그 때 고작 10살이었어요. 그 어린 애가 무슨...\"");
             Print("\"유재현 씨 마음은 잘 압니다. 일단 만나서 얘기 하실까요.\"");
             Print("\"... 네.\"\n");
         }
@@ -102,7 +108,7 @@ namespace NewProject_CS.Scene_Add
         {
             Console.WriteLine("");
             Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
-            Console.ReadKey();
+            Console.ReadKey(true);
         }
         public override void Result() { }
         public override void Next()
@@ -112,11 +118,6 @@ namespace NewProject_CS.Scene_Add
     }
     public class PrologScene2 : Scene
     {
-        private void Print(string text)
-        {
-            Console.WriteLine(text);
-            Thread.Sleep(2000);
-        }
         public override void Render()
         {
             Console.WriteLine("");
@@ -138,11 +139,11 @@ namespace NewProject_CS.Scene_Add
             {
                 case ConsoleKey.D1:
                 case ConsoleKey.NumPad1:
-                    Print("저 사람만 없으면 우리 은우를 지킬 수 있어...");
+                    Print("\"저 사람만 없으면 우리 은우를 지킬 수 있어...\"");
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
-                    Print("아니야, 내가 지금 무슨 생각을...");
+                    Print("\"아니야, 내가 지금 무슨 생각을...\"");
                     break;
             }
         }
@@ -161,13 +162,8 @@ namespace NewProject_CS.Scene_Add
             }
         }
     }
-    public class ImprisonedEnd1 : Scene
+    public class ImprisonedEndScene1 : Scene
     {
-        private void Print(string text)
-        {
-            Console.WriteLine(text);
-            Thread.Sleep(2000);
-        }
         public override void Render()
         {
             Console.WriteLine("");
@@ -192,7 +188,7 @@ namespace NewProject_CS.Scene_Add
         {
             Console.WriteLine("");
             Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
-            Console.ReadKey();
+            Console.ReadKey(true);
         }
         public override void Result() { }
         public override void Next()
@@ -200,13 +196,8 @@ namespace NewProject_CS.Scene_Add
             Game.ChangeScene("ImprisonedEnd2");
         }
     }
-    public class ImprisonedEnd2 : Scene
+    public class ImprisonedEndScene2 : Scene
     {
-        private void Print(string text)
-        {
-            Console.WriteLine(text);
-            Thread.Sleep(2000);
-        }
         public override void Render()
         {
             Console.WriteLine("");
@@ -228,7 +219,12 @@ namespace NewProject_CS.Scene_Add
             Print("\"빠르게 조치를 취하면 혹시 모를 일이지요.\"\n");
             Print("그는 그대로 휴대폰을 들어 어딘가로 연락을 하는 듯 했고, 등 뒤로 울리는 사이렌 소리를 뒤로 하며 나는 김민중 형사의 차에 올라탔다.\n");
         }
-        public override void Choice() { }
+        public override void Choice()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
+            Console.ReadKey(true);
+        }
         public override void Result() { }
         public override void Next()
         {
@@ -237,11 +233,6 @@ namespace NewProject_CS.Scene_Add
     }
     public class PrologScene3 : Scene
     {
-        private void Print(string text)
-        {
-            Console.WriteLine(text);
-            Thread.Sleep(2000);
-        }
         public override void Render()
         {
             Console.WriteLine("");
@@ -257,7 +248,12 @@ namespace NewProject_CS.Scene_Add
             Print("그리고 딱 이 밴치에 앉아 이야기를 나눴습니다.\"\n");
             Print("김민중 형사가 내 눈을 마주치며 말했다.\n");
         }
-        public override void Choice() { }
+        public override void Choice()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
+            Console.ReadKey(true);
+        }
         public override void Result() { }
         public override void Next()
         {
@@ -266,15 +262,10 @@ namespace NewProject_CS.Scene_Add
     }
     public class PrologScene4 : Scene
     {
-        private void Print(string text)
-        {
-            Console.WriteLine(text);
-            Thread.Sleep(2000);
-        }
         public override void Render()
         {
             Console.WriteLine("");
-            Print("\"자기가 8년 전 유병철 씨네 집에 불을 질렀다고.");
+            Print("\"자기가 7년 전 유병철 씨 집에 불을 질렀다고.");
             Print("그 말을 남기고는 어딘가로 사라졌습니다.");
             Print("저는 그 이후로 당시 초록마을 화재 사건을 계속 조사했습니다.");
             Print("아직 동료들에게 따로 알리지는 않고 혼자 자체적으로 조사중이라 큰 진전은 없지만 한 가지는 확실히 알겠더군요.\"\n");
@@ -294,12 +285,15 @@ namespace NewProject_CS.Scene_Add
             Print("스물스물 피어난 불안감이 가슴을 옥죄였다.\n");
             Print("\"정신 차리세요. 유재현 씨.\"\n");
         }
-
-        public override void Choice() { }
+        public override void Choice() {
+            Console.WriteLine("");
+            Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
+            Console.ReadKey(true);
+        }
         public override void Result() { }
         public override void Next()
         {
-            Game.ChangeScene("MainEvent");
+            Game.ChangeScene("ChapterOne");
         }
     }
 }

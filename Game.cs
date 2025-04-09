@@ -11,7 +11,7 @@ namespace NewProject_CS
     public static class Game
     {
         private static bool gameOver;
-
+        
         private static Dictionary<string, Scene> sceneDic;
         private static Scene curScene;
 
@@ -25,9 +25,15 @@ namespace NewProject_CS
             sceneDic.Add("Prolog2", new PrologScene2());
             sceneDic.Add("Prolog3", new PrologScene3());
             sceneDic.Add("Prolog4", new PrologScene4());
-            sceneDic.Add("ImprisonedEnd1", new ImprisonedEnd1());
-            sceneDic.Add("ImprisonedEnd2", new ImprisonedEnd2());
-
+            sceneDic.Add("ImprisonedEnd1", new ImprisonedEndScene1());
+            sceneDic.Add("ImprisonedEnd2", new ImprisonedEndScene2());
+            sceneDic.Add("ChapterOne", new ChapterOneScene());
+            sceneDic.Add("ChapterOne1", new ChapterOneScene1());
+            sceneDic.Add("ChapterOne2", new ChapterOneScene2());
+            sceneDic.Add("ChapterOne3", new ChapterOneScene3());
+            sceneDic.Add("DeadEnd", new DeadEndScene());
+            sceneDic.Add("BlueTown", new BlueTownScene());
+            
             curScene = sceneDic["Title"];
         }
 
@@ -65,5 +71,7 @@ namespace NewProject_CS
 
             gameOver = true;
         }
+
     }
+
 }
