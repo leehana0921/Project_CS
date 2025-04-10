@@ -40,6 +40,10 @@ namespace NewProject_CS
             sceneDic.Add("BlueTownUSB3", new BlueTownSceneUSB3());
             sceneDic.Add("BlueGreenMountain", new BlueGreenMountainScene());
             sceneDic.Add("BlueGreenMountain1", new BlueGreenMountainScene1());
+            sceneDic.Add("FamilyDeadEnd", new FamilyDeadEndScene());
+            sceneDic.Add("SharpEnd", new SharpEndScene());
+            sceneDic.Add("UmbrellaEnd", new UmbrellaEndScene());
+            sceneDic.Add("USBEnd", new USBEndScene());
 
             curScene = sceneDic["Title"];
 

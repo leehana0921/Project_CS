@@ -131,12 +131,12 @@
             Print("\"난 세상에서 이 팔각정이 제일 싫어, 형.\"\n");
             Print("아, 그랬구나. 그저 내가 모르고 있을 뿐이었구나.");
             Print("그 사람들이 애들을 잘 키운 게 아니라 그냥 겁 먹은 애들이 어떻게든 살려고 발버둥쳤던 거였구나.");
-            Print("");
-            Print("");
-            Print("");
-            Print("");
-            Print("");
-            Print("");
+            Print("은오를 달래려는 듯 은우가 은오의 등을 쓸어내렸다.");
+            Print("그렇게 은우의 반대편 손에서 작은 라이터 하나가 떨어졌다.");
+            Print("\"형. 우리는 형이 정말 좋았어. 친동생도 아닌 우리를 잘키워줘서 고마워.\"\n");
+            Print("그렇게 말하며 동생들의 몸에도 그대로 불이 옮겨붙었고");
+            Print("은오와 은우는 그 뒤 절벽 아레로 몸을 던졌다.\n");
+
 
         }
         public override void Choice()
@@ -148,7 +148,7 @@
         public override void Result() { }
         public override void Next()
         {
-            Game.ChangeScene("BlueGreenMountain1");
+            Game.Gameover("당신은 동생들을 지키지 못했습니다. 다음에는 꼭 구할 수 있었으면 좋겠습니다.");
         }
     }
     public class SharpEndScene : Scene
