@@ -1,18 +1,11 @@
 ﻿using NewProject_CS.Scene_Add;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using static NewProject_CS.Scene_Add.PrologScene;
 
 namespace NewProject_CS
 {
     public static class Game
     {
         private static bool gameOver;
-        
+
         private static Dictionary<string, Scene> sceneDic;
         private static Scene curScene;
 
@@ -36,9 +29,18 @@ namespace NewProject_CS
             sceneDic.Add("ChapterOne3", new ChapterOneScene3());
             sceneDic.Add("DeadEnd", new DeadEndScene());
             sceneDic.Add("BlueTown", new BlueTownScene());
+            sceneDic.Add("BlueTown1", new BlueTownScene1());
             sceneDic.Add("BlueTownShop", new BlueTownSceneShop());
             sceneDic.Add("BlueTownEvidence", new BlueTownSceneEvidence());
-            
+            sceneDic.Add("BlueTownEvidence1", new BlueTownSceneEvidence1());
+            sceneDic.Add("BlueTownEvidence2", new BlueTownSceneEvidence2());
+            sceneDic.Add("BlueTownUSB", new BlueTownSceneUSB());
+            sceneDic.Add("BlueTownUSB1", new BlueTownSceneUSB1());
+            sceneDic.Add("BlueTownUSB2", new BlueTownSceneUSB2());
+            sceneDic.Add("BlueTownUSB3", new BlueTownSceneUSB3());
+            sceneDic.Add("BlueGreenMountain", new BlueGreenMountainScene());
+            sceneDic.Add("BlueGreenMountain1", new BlueGreenMountainScene1());
+
             curScene = sceneDic["Title"];
 
             player = new Player();
@@ -48,7 +50,17 @@ namespace NewProject_CS
 
         public static void End()
         {
-
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("============================================");
+            Console.WriteLine("");
+            Console.WriteLine("  _____ _   _ _____   _____ _   _ ____  ");
+            Console.WriteLine(" |_   _| | | | ____| | ____| \\ | |  _ \\");
+            Console.WriteLine("   | | | |_| |  _|   |  _| |  \\| | | | |");
+            Console.WriteLine("   | | |  _  | |___  | |___| |\\  | |_| |");
+            Console.WriteLine("   |_| |_| |_|_____| |_____|_| \\_|____/ ");
+            Console.WriteLine("");
+            Console.WriteLine("============================================");
         }
 
         public static void Run()

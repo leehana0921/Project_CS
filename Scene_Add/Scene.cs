@@ -15,7 +15,7 @@ namespace NewProject_CS.Scene_Add
         public void Print(string text)
         {
             Console.WriteLine(text);
-            Thread.Sleep(2000);
+            Thread.Sleep(00);
         }
         // 한 글자씩 출력 되게 하는 코드
         public void PrintText(string text, int delay = 60)
