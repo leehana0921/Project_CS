@@ -11,11 +11,13 @@ namespace NewProject_CS.Scene_Add
     public abstract class Scene
     {
         public Inventory inventory = new Inventory();
+        //한 줄씩 출력 되게 하는 코드
         public void Print(string text)
         {
             Console.WriteLine(text);
-            Thread.Sleep(0);
+            Thread.Sleep(2000);
         }
+        // 한 글자씩 출력 되게 하는 코드
         public void PrintText(string text, int delay = 60)
         {
             foreach (char c in text)
@@ -64,11 +66,6 @@ namespace NewProject_CS.Scene_Add
     }
     public class PrologScene : Scene
     {
-         
-        
-             
-             
-        
         public override void Render()
         {
             Console.WriteLine("");
@@ -91,8 +88,6 @@ namespace NewProject_CS.Scene_Add
     }
     public class PrologScene1 : Scene
     {
-         
-        
         public override void Render()
         {
             Console.WriteLine("");

@@ -8,7 +8,7 @@ namespace NewProject_CS
 {
     public class Inventory
     {
-        private List<string> items;
+        public List<string> items;
 
         public Inventory()
         {

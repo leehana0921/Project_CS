@@ -117,14 +117,14 @@ namespace NewProject_CS.Scene_Add
             Console.WriteLine("1. 샤프를 산다.");
             Console.WriteLine("2. 우산을 산다.");
             Console.WriteLine("3. 아무 것도 사지 않는다.");
-            /*if (Game.Player.observation >= 5)
+            if (Game.Player.observation >= 5)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < inventory.items.Count; i++)
                 {
-                    if (inventory[i] == "")
+                    if (inventory.items[i] == "usb")
                     Console.WriteLine("4. 매장을 둘러본다.");
                 }
-            }*/
+            }
             Console.ReadKey(true);
         }
         public override void Result()
@@ -133,17 +133,22 @@ namespace NewProject_CS.Scene_Add
             {
                 case ConsoleKey.D1:
                 case ConsoleKey.NumPad1:
-                    Game.Player.observation = Game.Player.observation + 1;
-                    Print("\"말씀 드렸잖습니까. 자체적으로 조사중이었다고.");
-                    Print("아무리 성숙해도 애들은 애들이라 누구라도 자신의 마음을 알아주길 바랐을 겁니다.\"");
+                    Game.Player.gold -= 1000;
+                    inventory.Add("샤프");
+                    Print("샤프를 구매했습니다.");
+                    Print("1000원이 차감되었습니다.");
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
-                    PrintText("\"생각보다 눈치가 빠르네?\"");
+                    Game.Player.gold -= 6000;
+                    inventory.Add("우산");
+                    Print("우산을 구매했습니다.");
+                    Print("6000원이 차감되었습니다.");
                     break;
                 case ConsoleKey.D3:
                 case ConsoleKey.NumPad3:
-                    PrintText("\"생각보다 눈치가 빠르네?\"");
+                    Print("아무 것도 구매하지 않았습니다.");
+                    Print("밖으로 이동합니다.");
                     break;
 
             }
@@ -154,23 +159,78 @@ namespace NewProject_CS.Scene_Add
             {
                 case ConsoleKey.D1:
                 case ConsoleKey.NumPad1:
-                    Game.Player.observation = Game.Player.observation - 1;
-                    Game.ChangeScene("BlueTownShop");
+                    Game.ChangeScene("BlueTownScene1");
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
-                    Game.Player.observation = Game.Player.observation - 1;
-                    Game.ChangeScene("BlueTownShop");
+                    Game.ChangeScene("BlueTownScene1");
                     break;
                 case ConsoleKey.D3:
                 case ConsoleKey.NumPad3:
-                    Game.ChangeScene("BlueTownEvidence");
+                    Game.ChangeScene("BlueTownScene1");
                     break;
                 case ConsoleKey.D4:
                 case ConsoleKey.NumPad4:
-                    Game.ChangeScene("BlueTownEvidence");
+                    Game.ChangeScene("BlueTownEvidence1");
                     break;
             }
+        }
+    }
+    public class BlueTownSceneEvidence1 : Scene
+    {
+        public override void Render()
+        {
+            Console.WriteLine("");
+            Print("\"어?\"\n");
+            Print("매장을 둘러보던 내 눈에 띄인 건 초소형 빔프로젝터였다.\n");
+            Print("\"사장님 이거 설마 빔프로젝터에요?\"");
+            Print("\"눈썰미가 좋네~ 근데 빔프로젝터는 어니고 영상 재생기에요.");
+            Print("그거 이번에 휴대형으로 나온 거라 쓰려면 usb같은 거 있어야 해서 별로 쓸모는 없을 건디?\"\n");
+            Print("이거다. 이게 지금 내게 딱 필요한 거다.");
+            Print("게다가 마침 내게는 확인이 필요한 usb도 있지 얺은가.");
+            Print("\"사장님 저 이걸로 할게요.\"\n");
+            Print("영상재생기를 구매했습니다.");
+            Print("10000원이 차감되었습니다.");
+
+        }
+        public override void Choice()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
+            Console.ReadKey(true);
+        }
+        public override void Result() {
+            Game.Player.gold -= 10000;
+            inventory.Add("영상재생기");
+        }
+        public override void Next()
+        {
+            Game.ChangeScene("BlueGreenMountain");
+        }
+    }
+    public class BlueTownScene1 : Scene
+    {
+        public override void Render()
+        {
+            Console.WriteLine("");
+            Print("그렇게 문구점 밖으로 나온 우리는 서둘러 청록산으로 향했다.");
+            Print("조금만 있으면 애들을 만날 수 있어.\n");
+            Print("\"빠르게 출발합시다. 시간이 얼마 안 남았어요.\"\n");
+            Print("애들이 청록산에는 왜 간 걸까.");
+            Print("거기서 8시에 해야만 한다는 일이 대체 뭐길래 이렇게 날 불안하게 만드는 걸까.");
+            Print("정말 미치기 일보 직전인 것만 같았다.\n");
+
+        }
+        public override void Choice()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("▶ 다음 페이지로 넘어가려면 아무 키나 눌러주세요");
+            Console.ReadKey(true);
+        }
+        public override void Result() { }
+        public override void Next()
+        {
+            Game.ChangeScene("BlueGreenMountain");
         }
     }
 

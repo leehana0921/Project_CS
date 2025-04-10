@@ -17,7 +17,6 @@ namespace NewProject_CS
         // 자본
         public int gold;
 
-        
     }
 
 }
