@@ -9,14 +9,15 @@ namespace NewProject_CS
     public class Player
     {
         // 날렵함
-        public int speed = 5;
+        public int speed;
         // 근력
-        public int power = 10;
+        public int power;
         // 관찰력
-        public int observation = 2;
+        public int observation;
         // 자본
-        public int gold = 10000;
+        public int gold;
 
         
     }
+
 }

@@ -10,14 +10,20 @@ namespace NewProject_CS.Scene_Add
 {
     public abstract class Scene
     {
-        public Player player = new Player();
         public Inventory inventory = new Inventory();
-        public int skip = 0;
-
         public void Print(string text)
         {
             Console.WriteLine(text);
-            Thread.Sleep(1000);
+            Thread.Sleep(0);
+        }
+        public void PrintText(string text, int delay = 60)
+        {
+            foreach (char c in text)
+            {
+                Console.Write(c);
+                Thread.Sleep(delay);
+            }
+            Console.WriteLine();
         }
         protected ConsoleKey input;
         
@@ -66,10 +72,10 @@ namespace NewProject_CS.Scene_Add
         public override void Render()
         {
             Console.WriteLine("");
-            Print("평범하다면 평범하다고 할 수 있는 가장인 나는");
-            Print("고등학생 때 화재로 부모님을 잃고 쌍둥이 동생둘과 같이 살고 있었다.");
-            Print("그렇게 평소와 다름없이 일을 하던 중 회사로 걸려 온 한 통의 전화,");
-            Print("갑자기 걸려 온 한 통의 전화는 내 인생을 송두리째 바꿔놓기에는 충분했다.\n");
+            PrintText("평범하다면 평범하다고 할 수 있는 한 집안의 가장인 나는");
+            PrintText("고등학생 때 화재로 부모님을 잃고 쌍둥이 동생둘과 같이 살고 있었다.");
+            PrintText("그렇게 평소와 다름없이 일을 하던 중 회사로 걸려 온 한 통의 전화,");
+            PrintText("갑자기 걸려 온 한 통의 전화는 내 인생을 송두리째 바꿔놓기에 충분했다.\n");
         }
         public override void Choice() 
         {
@@ -122,8 +128,8 @@ namespace NewProject_CS.Scene_Add
         {
             Console.WriteLine("");
             Print("나는 바로 전화를 끊고서는 김민중 형사에게로 갔다.");
-            Print("김민중 형사는 회사와 그리 멀지 않은 공원에 있다고 했다.");
-            Print("초록 공원에 도착하니 밴치에 앉아있는 검은 재킷을 입은 남자가 보였다.");
+            Print("김민중 씨는 회사와 그리 멀지 않은 공원에 있다고 했다.");
+            Print("초록 공원에 도착하니 벤치에 앉아있는 검은 재킷을 입은 남자가 보였다.");
             Print("나는 직감적으로 그 남자가 김민중 형사일 거라 직감했다.\n");
             Print("죽일까? \n");
         }
@@ -139,11 +145,11 @@ namespace NewProject_CS.Scene_Add
             {
                 case ConsoleKey.D1:
                 case ConsoleKey.NumPad1:
-                    Print("\"저 사람만 없으면 우리 은우를 지킬 수 있어...\"");
+                    PrintText("\"저 사람만 없으면 우리 은우를 지킬 수 있어...\"");
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
-                    Print("\"아니야, 내가 지금 무슨 생각을...\"");
+                    PrintText("\"아니야, 내가 지금 무슨 생각을...\"");
                     break;
             }
         }
@@ -167,7 +173,7 @@ namespace NewProject_CS.Scene_Add
         public override void Render()
         {
             Console.WriteLine("");
-            Print("마침 그 남자가 앉아있는 밴치는 햇빛이 잘 들지 않아 인적이 드문 자리였다.\n");
+            Print("마침 그 남자가 앉아있는 벤치는 햇빛이 잘 들지 않아 인적이 드문 자리였다.\n");
             Print("\"...사람이, 잘 오지 않는 자리에 앉아있네.\"\n");
             Print("나는 홀린 듯 소리없이 남자의 뒤쪽으로 다가갔다.");
             Print("남자의 뒤에 거의 다다랐을 즈음, 나는 주변에 아무렇게나 널부러져있는 돌을 하나 집어들었다.\n");
@@ -201,7 +207,7 @@ namespace NewProject_CS.Scene_Add
         public override void Render()
         {
             Console.WriteLine("");
-            Print("\"... 유재현 씨?\"\n");
+            PrintText("\"... 유재현 씨?\"\n");
             Print("내 이름을 부르는 그 한 마디에 심장이 철렁 내려 앉았다.");
             Print("꽤나 젊어보이는 인상의 남자가 나와 쓰러진 남자를 번갈아보며 입을 열었다.\n");
             Print("\"약속 시간이 한참 지나도 오시지 않으시기에... 와봤는데. 어떻게 된 상황인지는 대충 짐작이 가는 군요.\"\n");
@@ -215,7 +221,7 @@ namespace NewProject_CS.Scene_Add
             Print("목이 메여 말이 잘 나오지 않았으나 겨우 소리를 쥐어짜내어 문장을 완성했다.\n");
             Print("\"죽은, 건가요?\"");
             Print("\"......\"\n");
-            Print("김민중 형사가 쓰러진 남자에게 다가가 숨을 쉬는 지 확인하는 듯 했다.\n");
+            Print("김민중 씨가 쓰러진 남자에게 다가가 숨을 쉬는 지 확인하는 듯 했다.\n");
             Print("\"빠르게 조치를 취하면 혹시 모를 일이지요.\"\n");
             Print("그는 그대로 휴대폰을 들어 어딘가로 연락을 하는 듯 했고, 등 뒤로 울리는 사이렌 소리를 뒤로 하며 나는 김민중 형사의 차에 올라탔다.\n");
         }
@@ -245,8 +251,8 @@ namespace NewProject_CS.Scene_Add
             Print("\"음, 어디부터 말씀 드리면 좋을지,,,");
             Print("우선 제가 유은우 씨를 알게 된 건 보름 전입니다.");
             Print("제가 형사라는 것을 알고 있었는지 지나가던 저를 불러세우고는 할 말이 있다고 했었죠. ");
-            Print("그리고 딱 이 밴치에 앉아 이야기를 나눴습니다.\"\n");
-            Print("김민중 형사가 내 눈을 마주치며 말했다.\n");
+            Print("그리고 딱 이 벤치에 앉아 이야기를 나눴습니다.\"\n");
+            Print("김민중 씨가 내 눈을 마주치며 말했다.\n");
         }
         public override void Choice()
         {
@@ -279,11 +285,11 @@ namespace NewProject_CS.Scene_Add
             Print("그저 노느라 즐거워서, 형 생각이 나지 않을만큼 즐거워서 그런 거라고 생각했었다. ");
             Print("\"이틀 전부터 유은우 씨와 유은오 씨의 행방이 묘연합니다.");
             Print("마치 이 세상에서 사라진 것처럼 말이죠.\"\n");
-            Print("짐작가는 부분이 있느냐 묻는 김민중의 말도 귀에 들어오지 않았다.");
+            Print("짐작가는 부분이 있느냐 묻는 김민중 씨의 말도 귀에 들어오지 않았다.");
             Print("아직 어린애들인데, 그저 내가 힘들다는 이유로 최근 전혀 신경 써주지 못했다.");
             Print("애들한테 무슨 일이 생기게 된다면 이건 온전히 내 책임이었다.");
             Print("스물스물 피어난 불안감이 가슴을 옥죄였다.\n");
-            Print("\"정신 차리세요. 유재현 씨.\"\n");
+            PrintText("\"정신 차리세요. 유재현 씨.\"\n");
         }
         public override void Choice() {
             Console.WriteLine("");

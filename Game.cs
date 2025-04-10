@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using static NewProject_CS.Scene_Add.PrologScene;
@@ -15,6 +16,8 @@ namespace NewProject_CS
         private static Dictionary<string, Scene> sceneDic;
         private static Scene curScene;
 
+        private static Player player;
+        public static Player Player { get { return player; } }
         public static void Start()
         {
             // 게임에 있는 모든 씬들을 보관하고 빠르게 찾아줄 용도로 쓸 자료구조
@@ -33,8 +36,14 @@ namespace NewProject_CS
             sceneDic.Add("ChapterOne3", new ChapterOneScene3());
             sceneDic.Add("DeadEnd", new DeadEndScene());
             sceneDic.Add("BlueTown", new BlueTownScene());
+            sceneDic.Add("BlueTownShop", new BlueTownSceneShop());
+            sceneDic.Add("BlueTownEvidence", new BlueTownSceneEvidence());
             
             curScene = sceneDic["Title"];
+
+            player = new Player();
+            player.observation = 2;
+            player.gold = 10000;
         }
 
         public static void End()

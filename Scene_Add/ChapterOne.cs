@@ -14,7 +14,7 @@ namespace NewProject_CS.Scene_Add
             Console.WriteLine("");
             Print("한순간에 정신이 번쩍 들었다.");
             Print("그래, 애들의 보호자인 내가 벌써부터 흔들리면 안 되지.");
-            Print("우선 애들을 찾는 것만 생각하자.\n");
+            Print("우선 동생을 찾는 것만 생각하자.\n");
         }
         public override void Choice()
         {
@@ -26,13 +26,13 @@ namespace NewProject_CS.Scene_Add
             {
                 case ConsoleKey.D1:
                 case ConsoleKey.NumPad1:
+                    Game.Player.observation = Game.Player.observation + 1;
                     Print("\"말씀 드렸잖습니까. 자체적으로 조사중이었다고.");
                     Print("아무리 성숙해도 애들은 애들이라 누구라도 자신의 마음을 알아주길 바랐을 겁니다.\"");
-                    player.observation += 2;
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
-                    Print("\"생각보다 눈치가 빠르네?\"");
+                    PrintText("\"생각보다 눈치가 빠르네?\"");
                     break;
             }
         }
@@ -88,7 +88,7 @@ namespace NewProject_CS.Scene_Add
         public override void Result() { }
         public override void Next()
         {
-            Game.Gameover("당신은 진짜 범인에게 사랑하는 동생들도 잃고 목숨도 잃었습니다.");
+            Game.Gameover("당신은 진짜 범인에게 사랑하는 동생들을 뺴앗기고 목숨도 잃었습니다.");
         }
     }
     public class ChapterOneScene1 : Scene
@@ -96,14 +96,14 @@ namespace NewProject_CS.Scene_Add
         public override void Render()
         {
             Console.WriteLine("");
-            Print("김민중은 휴대폰 화면을 내게 내밀었고 나는 그것을 받아들었다.");
+            Print("김민중 씨는 휴대폰 화면을 내게 내밀었고 나는 그것을 받아들었다.");
             Print("그 안에는 아이들이 올린 SNS 게시물이 있었다.\n");
             Print("\"... 애들이 SNS를 하는 줄도 모르는 못난 형이었군요, 저는.\"");
             Print("\"그게 아닙니다, 유재현 씨.\"");
             Print("\"네?\"");
             Print("\"잘보십시오.\"");
             Print("\"대체 무슨 말씀을 하시는 건지...\"\n");
-            Print("영문을 모르겠다는 표정으로 쳐다보자 김민중이 손으로 게시글의 한 부분을 짚어줬다.\n");
+            Print("영문을 모르겠다는 표정으로 쳐다보자 손으로 게시글의 한 부분을 짚어줬다.\n");
             Print("\'드디어 은오랑 같이 온 파란 마을. 너무너무 긴장된다");
             Print("12월 3일 오후 8시. 드디어 마지막이야.");
             Print("형이랑 같이 오고 싶었지만 그건 안 되겠지. 언젠가 꼭 같이 오자, 형!\'");
@@ -120,17 +120,17 @@ namespace NewProject_CS.Scene_Add
             {
                 case ConsoleKey.D1:
                 case ConsoleKey.NumPad1:
-                    player.observation -= 1;
+                    Game.Player.observation = Game.Player.observation - 1;
                     Print("\"지금 그게 중요한 게 아닙니다.\"");
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
-                    player.observation += 1;
+                    Game.Player.observation = Game.Player.observation + 1;
                     Print("\"아마 유재현 씨에게는 목적을 알리고 싶지 않았을 겁니다.\"");
                     break;
                 case ConsoleKey.D3:
                 case ConsoleKey.NumPad3:
-                    player.observation += 2;
+                    Game.Player.observation = Game.Player.observation + 2;
                     Print("\"정말 집으로 돌아올 거라고 생각합니까?\"");
                     break;
             }
@@ -142,15 +142,7 @@ namespace NewProject_CS.Scene_Add
     }
     public class ChapterOneScene2 : Scene
     {
-        public void PrintText(string text, int delay = 70)
-        {
-            foreach (char c in text)
-            {
-                Console.Write(c);
-                Thread.Sleep(delay);
-            }
-            Console.WriteLine();
-        }
+ 
         public override void Render()
         {
             Console.WriteLine("");
@@ -161,7 +153,7 @@ namespace NewProject_CS.Scene_Add
             Print("물론 그건 유재현 씨 모르게 행해야 하는 것이겠지요.");
             Print("혹시 짐작가는 거 없으십니까?");
             Print("\"... 모르겠습니다. 더군다나 저는 파란 마을에 가본적이 없습니다.\"");
-            Print("흠. 그렇군요. 지금 시간이 딱 5시이니 서둘러 출발해야 할 것 같습니다.");
+            Print("\"흠. 그렇군요. 지금 시간이 딱 5시이니 서둘러 출발해야 할 것 같습니다.");
             Print("다행히 파란 마을까지는 얼마 안 걸리니 사진에 나와있는 장소로 가서 단서를 수집하도록 합시다.\"\n");
             Print("이 사람은 경찰인데 내가 믿어도 될까?");
             Print("애들을 찾았는데 만약 진짜로 부모님을 죽인 게 은우라면?");
@@ -189,7 +181,7 @@ namespace NewProject_CS.Scene_Add
                     Print("하지만 최소한의 안전장치정도는 해 두는 게 좋겠지.\n");
                     Print("\"역시 USB정도는 제가 갖고 있어야 할 것 같습니다.");
                     Print("저희가 완벽한 신뢰 관계는 아니잖아요.\"");
-                    Print("\"... 알겠습니다. 그정도는 드리는 게 멎겠지요.\"\n");
+                    Print("\"... 알겠습니다. 그정도는 드리는 게 맞겠지요.\"\n");
                     Print("USB를 손에 넣었다!");
                     inventory.Add("usb");
                     break;
@@ -213,16 +205,22 @@ namespace NewProject_CS.Scene_Add
             Console.WriteLine("");
             Print("\"안 가십니까? 저 차 안 가져왔습니다.\"");
             Print("\"아, 가시죠. 이쪽입니다.\"\n");
-            Print("서둘러 일어난 나는 김민중과 함께 차로 향했다.\n");
-            Print("\"사진에 있는 장소는 파란 마을 시청쪽인 것 같습니다.\n대략 30분정도 소요 되겠군요.\"");
+            Print("서둘러 일어난 나는 김민중 씨와 함께 차로 향했다.\n");
+            Print("\"사진에 있는 장소는 파란 마을 시청쪽인 것 같습니다.");
+            Print("대략 30분정도 소요 되겠군요.\"");
             Print("\"저, 형사님. 궁금한 게 있습니다.\"");
             Print("\"말씀하셔도 됩니다.\"");
-            Print("\"그 USB에는 어떤 내용이 들어있습니까?\n동생들이 그 날 무슨 대화를 한 건지 다 녹음이 되어있는 겁니까?\"");
-            Print("\"정확하게 다 녹음이 되어있는 것은 아닙니다.\n아무래도 거리가 있다보니 녹음 된 내용이 거의 없는 거나 마찬가지입니다.\"");
+            Print("\"그 USB에는 어떤 내용이 들어있습니까?");
+            Print("동생들이 그 날 무슨 대화를 한 건지 다 녹음이 되어있는 겁니까?\"");
+            Print("\"정확하게 다 녹음이 되어있는 것은 아닙니다.");
+            Print("아무래도 거리가 있다보니 녹음 된 내용이 거의 없는 거나 마찬가지입니다.\"");
             Print("\"아... 그럼 딱히 건질만한 내용같은 건 없겠네요.\"");
-            Print("\"그럴 수도 있겠지만 중간중간 잘 들리는 부분도 있어서 유재현 씨가 영상을 직접 봐주시면 더 좋을텐데요.\n물론 지금은 볼 수가 없으니 따로 방도는 없겠습니다.\"");
+            Print("\"그럴 수도 있겠지만 중간중간 잘 들리는 부분도 있어서 유재현 씨가 영상을 직접 봐주시면 더 좋을텐데요.");
+            Print("물론 지금은 볼 수가 없으니 따로 방도는 없겠습니다.\"");
             Print("\"혹시 애들이 어떤 대화를 나눴나요?\"");
-            Print("\"언쟁을 벌이는 듯 해 보였습니다.\n중간중간 유재현 씨 이름도 나왔고요.\n끊겨들린데다가 아무래도 저는 유재현 씨 가족 분들의 사정은 잘 모르니까요.\"\n");
+            Print("\"언쟁을 벌이는 듯 해 보였습니다.");
+            Print("중간중간 유재현 씨 이름도 나왔고요.");
+            Print("끊겨들린데다가 아무래도 저는 유재현 씨 가족 분들의 사정은 잘 모르니까요.\"\n");
             Print("... 언쟁이라.\n");
             Print("\"그 날 대체 무슨 일이 있었던 거야...\"\n");
             Print("나는 입술을 깨물며 초초한 마음을 뒤로 한 채 악셀을 더 쎄게 밟을 뿐이었다.\n");
